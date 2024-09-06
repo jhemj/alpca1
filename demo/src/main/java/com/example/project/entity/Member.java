@@ -16,13 +16,13 @@ public class Member {
     @Id
     @GeneratedValue
     @UuidGenerator
-    private UUID uuid;         // UUID 컬럼, Primary Key, 자동 생성
+    private UUID uuid;         // UUID 컬럼, 자동 생성
 
     @Column(nullable = false, length = 15)
-    private String phoneNumber; // 전화번호 컬럼, NOT NULL
+    private String phoneNumber; // 전화번호 컬럼, NOT NULL, 프라이머리 키
 
     @Column(nullable = false, length = 6)
-    private String yyyymm;     // YYYYMM 컬럼, NOT NULL
+    private String yyyymm;     // YYYYMM 컬럼, NOT NULL, 프라이머리 키
 
     @Column(nullable = false)
     private Boolean actual = true;    // Actual 컬럼, NOT NULL

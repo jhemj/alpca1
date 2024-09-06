@@ -40,7 +40,7 @@ public class MemberController {
                      .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
-    // **전화번호로 모든 멤버 조회 (새로운 메서드 추가)**
+    // 전화번호로 모든 멤버 조회
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{phoneNumber}")
     public ResponseEntity<List<Member>> getMembersByPhoneNumber(@PathVariable("phoneNumber") String phoneNumber) {

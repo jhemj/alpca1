@@ -1,4 +1,3 @@
-// LPGopRepository.java
 package com.example.project.repository;
 
 import com.example.project.entity.LPGop;

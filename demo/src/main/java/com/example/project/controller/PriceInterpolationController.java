@@ -1,4 +1,3 @@
-// PriceInterpolationController.java
 package com.example.project.controller;
 
 import com.example.project.service.PriceInterpolationService;
@@ -17,16 +16,24 @@ public class PriceInterpolationController {
     @Autowired
     private PriceInterpolationService interpolationService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    // LPG 보간 작업
     @GetMapping("/lpg")
     public ResponseEntity<String> interpolateLPGPrices() {
-        interpolationService.interpolateLPGhdPrices();
+        interpolationService.interpolateLPG();  // 통합된 LPG 보간 작업 메서드 호출
         return ResponseEntity.ok("LPGhd 결측치 보간 완료");
     }
-    @CrossOrigin(origins = "http://localhost:3000")
+
+    // LNG 보간 작업
     @GetMapping("/lng")
     public ResponseEntity<String> interpolateLNGPrices() {
-        interpolationService.interpolateLNGdsPrices();
+        interpolationService.interpolateLNG();  // 통합된 LNG 보간 작업 메서드 호출
         return ResponseEntity.ok("LNGds 결측치 보간 완료");
+    }
+
+    // 전체 보간 작업 (LPG와 LNG 모두)
+    @GetMapping("/all")
+    public ResponseEntity<String> interpolateAllPrices() {
+        interpolationService.interpolateAll();  // LPG와 LNG 모두 보간하는 메서드 호출
+        return ResponseEntity.ok("LPG 및 LNG 결측치 보간 완료");
     }
 }
